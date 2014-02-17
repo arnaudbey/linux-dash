@@ -253,7 +253,8 @@ dashboard.getWhereIs = function() {
                 { sTitle: "Software" },
                 { sTitle: "Installation" }
             ],
-            bPaginate: false,
+            bPaginate: true,
+			iDisplayLength: 6,
             bFilter: false,
             aaSorting: [[1, "desc"]],
             bAutoWidth: false,
@@ -283,6 +284,27 @@ dashboard.getIp = function() {
             sPaginationType: "two_button",
             bFilter: false,
             bAutoWidth: true,
+            bInfo: false
+        }).fadeIn();
+    }, "json");
+}
+
+dashboard.getPing = function() {
+    $.get("sh/ping.php", function(data) {
+        destroy_dataTable("ping_dashboard");
+
+        $("#ping_dashboard").dataTable({
+            aaData: data,
+            aoColumns: [
+                { sTitle: "Host" },
+                { sTitle: "Time (in ms)" }
+            ],
+            aaSorting: [[0, "desc"]],
+            bPaginate: true,
+            sPaginationType: "full_numbers",
+            bFilter: true,
+            sDom: "lrtip",
+            bAutoWidth: false,
             bInfo: false
         }).fadeIn();
     }, "json");
@@ -345,8 +367,16 @@ dashboard.getDnsmasqLeases = function() {
             bInfo: false
         }).fadeIn();
     }, "json");
-  console.log('get DNSMASQ');
 }
+
+dashboard.getBandwidth = function() {
+    $.get("sh/bandwidth.php", function(data) {
+      $('#bw-tx').text(data.tx);
+      $('#bw-rx').text(data.rx);
+    },'json');
+
+}
+
 
 /**
  * Refreshes all widgets. Does not call itself recursively.
@@ -372,5 +402,7 @@ dashboard.fnMap = {
     ispeed: dashboard.getIspeed,
     cpu: dashboard.getLoadAverage,
     netstat: dashboard.getNetStat,
-    dnsmasqleases: dashboard.getDnsmasqLeases
+    dnsmasqleases: dashboard.getDnsmasqLeases,
+    bandwidth: dashboard.getBandwidth,
+    ping: dashboard.getPing
 };

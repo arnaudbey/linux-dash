@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    // hide localstored hidden widgets
+    keepWidgetHidden();
+
     // enable popovers
     $(".pop").popover();
 
@@ -77,3 +80,65 @@ $( ".row" ).sortable({
       tolerance: 'pointer'
  });
 
+/**
+ *
+ * Widget hide functionality
+ *
+**/
+// general cached DOM objects
+closedWidgetCount = $('#closed-widget-count'),
+closedWidgets = $('#closed-widget-list');
+
+// attach a close button to all widget headers
+$('.widget-header').append('<div class="btn icon-remove hide-widget"></div>');
+
+// hide / close widget function
+$('.hide-widget').live('click',function(){
+    var widget = $(this).parent().parent();
+    hideWidget(widget, 300);
+});
+
+// unhide closed widget
+$('.open-widget').live('click',function(){
+    // cache DOM objects/data used in this function
+    var widgetIdentifier = $(this).data('id');
+    var widget = $( "#" + widgetIdentifier );
+    var navItem = $(this).parent();
+
+    // unhide widget
+    widget.show(500);
+
+    // remove item from closed-widget-list
+    navItem.remove();
+
+    // decrement closed-widget-count 
+    closedWidgetCount.text( Number(closedWidgetCount.text()) - 1);
+
+    // remove widget from localstorage
+    window.localStorage.removeItem( widgetIdentifier );
+});
+
+
+function hideWidget(widget, speed){
+    // cache DOM objects/data used in this function
+    var widgetName = widget.find('.widget-header h3').text();
+    var widgetIdentifier = widget.attr('id'); 
+
+    // update count
+    closedWidgetCount.text( Number(closedWidgetCount.text()) + 1);
+
+    // hide widget from DOM
+    widget.hide(speed);
+
+    // add to hidden list
+    closedWidgets.append('<li><a class="open-widget" data-id="'+widgetIdentifier+'"><i class="icon-plus-sign"></i>  '+widgetName+'</a></li>');
+
+    // add widget to localstorage
+    window.localStorage.setItem(widgetIdentifier, null);
+}
+
+function keepWidgetHidden(){
+    for(var i in window.localStorage){
+        hideWidget( $("#" + i), 0 );
+    }
+}
