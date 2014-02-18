@@ -71,7 +71,7 @@
                             A simple web dashboard to monitor your server.
                         </div>
                     </div>
-                    <div class="row">
+                    <div id="widgets" class="row">
                         <div class="span3">
                             <div id="general-info-widget" class="widget widget-table action-table">
                                 <div class="widget-header">
@@ -134,7 +134,7 @@
                                     <div id="refresh-ram" class="btn icon-refresh js-refresh-info"></div>
                                 </div><!-- /widget-header -->
                                 <div class="widget-content">
-                                    <div class="widget big-stats-container">
+                                    <div class="big-stats-container">
                                         <div class="widget-content">
                                             <div class="cf big_stats">
                                                 <div class="stat">
@@ -154,8 +154,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                    
+
                         <div class="span6">
                             <div id="disk-usage-widget" class="widget widget-table">
                                 <div class="widget-header">
@@ -184,8 +184,7 @@
                                 </div><!-- /widget-content -->
                             </div><!-- /widget -->
                         </div><!-- /span -->
-                    </div><!-- /row -->
-                    <div class="row">
+                    
                         <div class="span6">
                             <div id="dns-lease-widget" class="widget widget-table">
                                 <div class="widget-header">
@@ -193,7 +192,7 @@
                                     <h3>
                                         DNS Leases
                                     </h3>
-                                    <div id="refresh-dnsmasqleases" class="btn btn-mini icon-refresh js-refresh-info"></div>
+                                    <div id="refresh-dnsmasqleases" class="btn icon-refresh js-refresh-info"></div>
                                 </div><!-- /widget-header -->
                                 <div class="widget-content">
                                     <table id="dnsmasqleases_dashboard" class="table table-hover table-condensed table-bordered"></table>
@@ -230,8 +229,7 @@
                                 </div><!-- /widget-content -->
                             </div><!-- /widget -->
                         </div><!-- /span -->
-                    </div><!-- /row -->
-                    <div class="row">
+                    
                         <div class="span4">
                             <div id="netstat-widget" class="widget widget-table">
                                 <div class="widget-header">
@@ -239,7 +237,7 @@
                                     <h3>
                                         Network Statistics
                                     </h3>
-                                    <div id="refresh-netstat" class="btn btn-mini icon-refresh js-refresh-info"></div>
+                                    <div id="refresh-netstat" class="btn icon-refresh js-refresh-info"></div>
                                 </div>
                                 <div class="widget-content">
                                     <table id="netstat_dashboard" class="table table-hover table-condensed table-bordered"></table>
@@ -253,14 +251,14 @@
                                     <h3>
                                         Ping
                                     </h3>
-                                    <div id="refresh-ping" class="btn btn-mini icon-refresh js-refresh-info"></div>
+                                    <div id="refresh-ping" class="btn icon-refresh js-refresh-info"></div>
                                 </div>
                                 <div class="widget-content">
                                     <table id="ping_dashboard" class="table table-hover table-condensed table-bordered"></table>
                                 </div>
                             </div>
                         </div>
-                        <div class="span3">
+                        <div class="span4">
                             <div id="bandwidth-widget" class="widget widget-table">
                                 <div class="widget-header">
                                     <i class="icon-exchange"></i>
@@ -276,8 +274,7 @@
                                 </div><!-- /widget-content -->
                             </div><!-- /widget -->
                         </div><!-- /span -->
-                    </div>
-                    <div class="row">
+                    
                         <div class="span6">
                             <div id="users-widget" class="widget widget-table action-table">
                                 <div class="widget-header">
@@ -306,8 +303,7 @@
                                 </div><!-- /widget-content -->
                             </div><!-- /widget -->
                         </div><!-- /span6 -->
-                    </div><!-- /row -->
-                    <div class="row">
+                    
                         <div class="span12">
                             <div id="process-widget" class="widget widget-table">
                                 <div class="widget-header">
