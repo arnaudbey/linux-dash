@@ -10,7 +10,8 @@ $hosts = array(
     /*
      * A /dev/null type service to POST blobs which will discard data after reading is recommended.
      * If you know of such service please let me know.
-     * This one here has some very cool features. Visit the site for more options like custom server status_code response etc.
+     * This one here has some very cool features.
+     * Visit the site for more options like custom server status_code response etc.
      * Change or remove resource query string dir=... if you do not wont your request logged.
      */
     'upload' => array(
@@ -21,7 +22,8 @@ $hosts = array(
             'timeout' => 30,
         ),
     ),
-    // A big(~10MB) CDN hosted( e.g CloudFlare ) blob would be preferable for high availability and consistent performance.
+    /* A big(~10MB) CDN hosted( e.g CloudFlare ) blob would be preferable for high availability
+    and consistent performance. */
     'download' => array(
         0 => array(
             /* IPv4 & IPv6 Port: 80, 81, 8080 IPv6 */
