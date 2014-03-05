@@ -7,8 +7,8 @@ exec($command, $result, $error);
 if ($error) { // It didn't work with "ip" , so we do it with ifconfig
     exec(
         '/sbin/ifconfig | /bin/grep -B1 "inet addr" | /usr/bin/awk \'' .
-        '{ if ( $1 == "inet" ) { print $2 }' .
-        'else if ( $2 == "Link" ) { printf "%s:",$1 } }\' | /usr/bin/awk' .
+        '{ if ($1 == "inet") { print $2 }' .
+        'else if ($2 == "Link") { printf "%s:",$1 } }\' | /usr/bin/awk' .
         ' -F: \'{ print $1","$3 }\'',
         $result
     );

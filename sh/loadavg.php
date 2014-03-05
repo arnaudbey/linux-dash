@@ -13,7 +13,7 @@ header('Content-Type: application/json; charset=UTF-8');
 echo json_encode(
     array_map(
         function ($value, $numberOfCores) {
-            return array($value, (int)($value * 100 / $numberOfCores));
+            return array($value, (int) ($value * 100 / $numberOfCores));
         },
         $loadAvg,
         array_fill(0, count($loadAvg), $numberOfCores)
