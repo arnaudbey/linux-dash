@@ -22,7 +22,15 @@ $(document).ready(function() {
     }, 1000);
 }).on("click", ".js-refresh-info", function(event) {
     event.preventDefault();
-    var item = event.target.id.split("-").splice(-1)[0];
+    var target = event.target;
+    var item = target.id.split("-").splice(-1)[0];
+
+    // if the refresh icon is click (where in a <span>) target will not have an id, so grab its parent instead
+    if(target.id == "") {
+        var parent = $(target).parent()[0];
+        item = parent.id.split("-").splice(-1)[0];
+    }
+
     dashboard.fnMap[item]();
 });
 
@@ -98,6 +106,24 @@ $( "#widgets" ).sortable({
 // general cached DOM objects
 closedWidgetCount = $('#closed-widget-count'),
 closedWidgets = $('#closed-widget-list');
+allWidgets = $('.widget');
+
+// Close all widgets
+$('#close-all-widgets').click(function(){
+
+    allWidgets.each(function(index){
+	hideWidget($(this), 400);
+    });
+
+});
+
+// Open all widgets
+$('#open-all-widgets').click(function(){
+
+    allWidgets.each(function(index){
+	openWidget($(this), $(this).attr('id'), 500);
+    });
+});
 
 // attach a close button to all widget headers
 $('.widget-header').append('<div class="btn btn-icon-only icon-remove hide-widget"></div>');
@@ -115,24 +141,32 @@ $('.open-widget').live('click',function(){
     var widget = $( "#" + widgetIdentifier );
     var navItem = $(this).parent();
 
-    // unhide widget
-    widget.show(500);
+    openWidget(widget,widgetIdentifier,500);
 
     // remove item from closed-widget-list
     navItem.remove();
 
+});
+
+function openWidget(widget, widgetIdentifier, speed){
+
     // decrement closed-widget-count 
-    closedWidgetCount.text( Number(closedWidgetCount.text()) - 1);
+    if(widget.is(":hidden")) {
+        closedWidgetCount.text( Number(closedWidgetCount.text()) - 1);
+    }
+
+    // unhide widget
+    widget.show(500);
 
      // remove widget from localstorage
     var localData = JSON.parse(window.localStorage.getItem('hidden'));
     for(var i = localData.length; i--;){
         if (localData[i] == widgetIdentifier) {
             localData.splice(i, 1);
-        } 
+        }
     }
     localStorage.setItem('hidden', JSON.stringify(localData));
-});
+}
 
 
 function hideWidget(widget, speed){
@@ -141,7 +175,9 @@ function hideWidget(widget, speed){
     var widgetIdentifier = widget.attr('id'); 
 
     // update count
-    closedWidgetCount.text( Number(closedWidgetCount.text()) + 1);
+    if(!widget.is(":hidden")) {
+        closedWidgetCount.text( Number(closedWidgetCount.text()) + 1);
+    }
 
     // hide widget from DOM
     widget.hide(speed);

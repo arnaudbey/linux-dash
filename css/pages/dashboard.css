@@ -207,10 +207,10 @@ Bootstrap Admin Template by EGrappler.com
 
 .big_stats .stat {
 	width: 35%;
-	height: 90px;
+	height: auto;
 	text-align: center;
 	display: table-cell;
-	padding: 0;
+	padding: 0 0 1em;
 	position: relative;
 	
 	border-right: 1px solid #CCC;
@@ -218,7 +218,7 @@ Bootstrap Admin Template by EGrappler.com
 }
 
 .big_stats  i { font-size:20px; display:block; line-height: 30px; color:#b2afaa; }
-.big_stats .stat i { color:#19bc9c; }
+.big_stats .stat i { font: 20px/2em "Open Sans", sans-serif; color:#19bc9c; }
 
 h6.bigstats {
 	margin: 20px;
@@ -229,12 +229,12 @@ h6.bigstats {
 
 .big_stats .stat:first-child {
 	border-left: none;
-	width:35%;
+	width:33%;
 }
 
 .big_stats .stat:last-child {
 	border-right: none;
-	width:35%;
+	width:33%;
 }
 
 .big_stats .stat h4 {
@@ -261,7 +261,7 @@ h6.bigstats {
 	}
 	
 	.big_stats .stat {
-		width: 25%;
+		width: 32%;
 		display: block;
 		margin-bottom: 1em;
 		float: left;

@@ -66,11 +66,6 @@ textarea {
 }
 
 
-
-
-
-
-
 /*------------------------------------------------------------------
 [2. Navbar / .navbar]
 */
@@ -408,7 +403,6 @@ textarea {
 
 .widget-content {
 	padding: 20px 15px 15px;
-	
 	background: #FFF;
 	
 	
@@ -1134,7 +1128,9 @@ width: 11px;}
 
 .paginate_active { text-decoration: underline; }
 
-
+#refresh-ispeed .icon-refresh, #refresh-ping .icon-refresh, #refresh-bandwidth .icon-refresh {
+	margin: 0;
+}
 
 /*------------------------------------------------------------------
 [1. Max Width: 480px]
@@ -1307,3 +1303,13 @@ width: 11px;}
 	}	
 }
 
+/* ----------------------------------------
+	Subnavbar CSS fix/work-around
+*/
+
+.container.nav-collapse.in {
+    overflow:visible;
+}
+.btn-navbar {
+    margin-top:-38px;
+}
