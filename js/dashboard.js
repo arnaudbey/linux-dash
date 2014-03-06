@@ -334,7 +334,7 @@ dashboard.getIp = function () {
 }
 
 dashboard.getPing = function () {
-    var refreshIcon = $('#refresh-ping .icon-refresh');
+    var refreshIcon = $('#refresh-ping.icon-refresh');
     refreshIcon.addClass('icon-spin');
 
     $.ajax({
@@ -369,7 +369,7 @@ dashboard.getPing = function () {
 dashboard.getIspeed = function () {
     var rateUpstream = $("#ispeed-rate-upstream");
     var rateDownstream = $("#ispeed-rate-downstream");
-    var refreshIcon = $("#refresh-ispeed .icon-refresh");
+    var refreshIcon = $("#refresh-ispeed.icon-refresh");
 
     // 0 = KB
     // 1 = MB
@@ -441,7 +441,7 @@ dashboard.getDnsmasqLeases = function () {
 }
 
 dashboard.getBandwidth = function () {
-    var refreshIcon = $('#refresh-bandwidth .icon-refresh');
+    var refreshIcon = $('#refresh-bandwidth.icon-refresh');
     refreshIcon.addClass('icon-spin');
 
     $.ajax({

@@ -82,7 +82,7 @@ function pulseElement(element, times, interval) {
  */
 
 $( "#widgets" ).sortable({
-      handle: ".widget-header",
+      handle: ".panel-heading",
       cancel: "#filter-ps",
       cursor: "move",
       opacity: 0.7,
@@ -126,11 +126,11 @@ $('#open-all-widgets').click(function(){
 });
 
 // attach a close button to all widget headers
-$('.widget-header').append('<div class="btn btn-icon-only icon-remove hide-widget"></div>');
+$('.widget .panel-heading .btn-group').append('<button class="btn btn-xs btn-default icon icon-remove hide-widget"></button>');
 
 // hide / close widget function
 $('.hide-widget').live('click',function(){
-    var widget = $(this).parent().parent();
+    var widget = $(this).parents(".widget");
     hideWidget(widget, 300);
 });
 
@@ -171,7 +171,7 @@ function openWidget(widget, widgetIdentifier, speed){
 
 function hideWidget(widget, speed){
     // cache DOM objects/data used in this function
-    var widgetName = widget.find('.widget-header h3').text();
+    var widgetName = widget.find('.panel-title').text();
     var widgetIdentifier = widget.attr('id'); 
 
     // update count
@@ -214,12 +214,13 @@ function keepWidgetOrdered(){
     if(localData!=null) {
         $.each(localData, function(i,value){
             var widgetId ="#" + value;
-            $("#widgets").append($(widgetId).parent());
+            $("#widgets").append($(widgetId));
         });
     }
 }
 
 function isInArray(array, search)
 {
+	
     return (array.indexOf(search) >= 0) ? true : false; 
 }

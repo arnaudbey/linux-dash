@@ -333,25 +333,10 @@ h6.bigstats {
    border-color:#19bc9c;
 }
 
-.navbar {
-   position:fixed;
-   top:0;
-   z-index:9999999;
-   width:100%;
-}
-
-.subnavbar {
-   position:fixed;
-   top:50px;
-   z-index:9999999;
-   width:100%;
-}
-
 .main {
-   margin-top:130px;
+   margin-top:70px;
 }
 .dataTables_paginate{ width:100%; text-align:center; margin-top:10px; margin-left:-30px;}
 .dataTables_paginate a{ margin-left:8px;}
 .dataTables_paginate a:hover{ pointer:pointer;}
-.navbar-fixed-top{  margin-left:0px;}
 .widget-search{display: inline-block; vertical-align: middle; margin: 0 6px; width: 200px;}

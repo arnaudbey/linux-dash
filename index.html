@@ -8,7 +8,6 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css">
         <link href="css/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href="css/style.css" rel="stylesheet" type="text/css">
         <link href="css/pages/dashboard.css" rel="stylesheet" type="text/css">
@@ -19,74 +18,62 @@
         <![endif]-->
     </head>
     <body>
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <a class="brand" href="./">linux-dash</a>
-                    <div class="nav-collapse">
-
-		        <ul class="nav pull-right">
-                            <li>
-                                <a target="_blank" href="http://github.com/afaqurk/linux-dash">
-			  	    <i class="lead icon-github-sign"></i> 
-				    <span class="lead">Contribute on GitHub</span>
-			        </a>
-                            </li>
-                        </ul>
-		    </div>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">linux-dash</a>
+                    <div class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="subnavbar">
-            <div class="subnavbar-inner">
-
- 	        <a class="btn btn-navbar btn-info visible-phone" data-toggle="collapse" data-target=".nav-collapse">
-        	    <span class="icon-bar"></span>
-        	    <span class="icon-bar"></span>
-        	    <span class="icon-bar"></span>
-      		</a>
-
-                <div class="container nav-collapse">
-
-                    <ul class="mainnav">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div id="menu" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
                         <li>
-                            <a class="js-smoothscroll" href="#refresh-os"><i class="icon-dashboard"></i><span>General</span></a>
-                        </li>
-                        <li>
-                            <a class="js-smoothscroll" href="#refresh-df"><i class="icon-list-alt"></i><span>Disk</span></a>
-                        </li>
-                        <li>
-                            <a class="js-smoothscroll" href="#refresh-ps"><i class="icon-list-alt"></i><span>CPU</span></a>
-                        </li>
-                        <li>
-                            <a class="js-smoothscroll" href="#refresh-ram"><i class="icon-list-alt"></i><span>RAM</span></a>
-                        </li>
-                        <li>
-                            <a class="js-smoothscroll" href="#refresh-users"><i class="icon-group"></i><span>Users</span></a>
-                        </li>
-                        <li>
-                            <a class="js-smoothscroll" href="#refresh-ispeed"><i class="icon-exchange"></i><span>Network</span></a>
+                            <a class="btn icon icon-refresh js-refresh-info" data-title="Refresh all widgets!" data-toggle="tooltip" id="refresh-all"></a>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			        <i id="closed-widget-count">0</i> 
-				<span> Closed Widgets <i class="icon-caret-down"></i></span>
-			    </a>
+                                <i id="closed-widget-count">0</i> 
+                                <span> Closed Widgets <i class="icon-caret-down"></i></span>
+                            </a>
                             <ul class="dropdown-menu" id="closed-widget-list">
-			        <li id="close-all-widgets">
-				    <a> <i class="icon-remove lead pull-left"></i> Close All Widgets</a>
-				</li>
-				<li id="open-all-widgets">
-				    <a> <i class="icon-plus lead pull-left"></i> Open All Widgets</a>
-				</li>
-				<li class=""><hr></li>
-			    </ul>
-			</li>
-			<li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-			        <i id="phpinfo-widget-what" class="icon-info-sign"></i>
-				<span>PHPInfo <i class="icon-caret-down"></i></span>
-			    </a>
+                                <li id="close-all-widgets">
+                                    <a> <i class="icon-remove lead pull-left"></i> Close All Widgets</a>
+                                </li>
+                                <li id="open-all-widgets">
+                                    <a> <i class="icon-plus lead pull-left"></i> Open All Widgets</a>
+                                </li>
+                                <li class=""><hr></li>
+                            </ul>
+                         </li>  
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-os"><span>General</span></a>
+                        </li>
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-df"><span>Disk</span></a>
+                        </li>
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-ps"><span>CPU</span></a>
+                        </li>
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-ram"><span>RAM</span></a>
+                        </li>
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-users"><span>Users</span></a>
+                        </li>
+                        <li>
+                            <a class="js-smoothscroll" href="#refresh-ispeed"><span>Network</span></a>
+                        </li>
+                        <li class="dropdown">
+                            <a id="phpinfo-widget-what" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span>PHPInfo <i class="icon-caret-down"></i></span>
+                            </a>
                             <ul class="dropdown-menu" id="phpinfo-widget-opt">
                                 <li><a href="sh/phpinfo.php?what=-1" target="_blank"><i class="icon-info"></i> - INFO_ALL</a></li>
                                 <li><a href="sh/phpinfo.php?what=1" target="_blank"><i class="icon-info"></i> - INFO_GENERAL</a></li>
@@ -97,33 +84,26 @@
                                 <li><a href="sh/phpinfo.php?what=2" target="_blank"><i class="icon-info"></i> - INFO_CREDITS</a></li>
                             </ul>
                         </li>
-                    </ul>
-                </div><!-- /container -->
-            </div><!-- /subnavbar-inner -->
-        </div><!-- /subnavbar -->
+                  </ul> 
+                </div>
+            </div>
+        </nav>
+
         <div class="main">
             <div class="main-inner">
-                <div class="container">
-                    <div class="lead" style="text-align: center;">
-                        <div class="btn icon-refresh js-refresh-info" data-title="Refresh all widgets!" data-toggle="tooltip" id="refresh-all"></div>
-                        <div>
-                            A simple web dashboard to monitor your server.
-                        </div>
-                    </div>
-                    <div id="widgets" class="">
+                <div class="container-fluid">
+                    <div id="widgets" class="row-fluid">
 
-                    <div class="row">
-                        <div class="span3">
-                            <div id="general-info-widget" class="widget widget-table action-table">
-                                <div class="widget-header">
-                                    <i class="icon-info-sign"></i>
-                                    <h3>
-                                        General Info
-                                    </h3>
-                                    <div id="refresh-os" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
-                                    <br>
+                        <div id="general-info-widget" class="widget col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-info-sign"></i>
+                                    <h3 class="panel-title">General Info</h3>
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-os" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <div style="text-align:center;">
                                         <b>OS:</b> <span class="" id="os-info"></span><br>
                                         <b>Uptime:</b> <span id="os-uptime"></span><br>
@@ -132,20 +112,20 @@
                                         <br>
                                         <br>
                                     </div>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="span4">
-                            <div id="load-average-widget" class="widget">
-                                <div class="widget-header">
-                                    <i class="icon-laptop"></i>
-                                    <h3>
-                                        Load average
-                                    </h3>
-                                    <div id="refresh-cpu" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                        <div id="load-average-widget" class="col-md-4 widget">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-laptop"></i>
+                                    <h3 class="panel-title">Load average</h3>
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-cpu" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <div style="text-align:center;">
                                         <b>Number of cores:</b> <span class="lead" id="core-number">0</span>
                                     </div>
@@ -163,20 +143,24 @@
                                             <span class="value" id="cpu-15min"></span>
                                         </div><!-- .stat -->
                                     </div>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="span5">
-                            <div id="ram-widget" class="widget widget-nopad">
-                                <div class="widget-header">
-                                    <i class="icon-list-alt"></i>
-                                    <h3>
-                                        RAM
-                                    </h3>
-                                    <div id="refresh-ram" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+
+
+
+
+                        <div id="ram-widget" class="widget col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list-alt"></i>
+                                    <h3 class="panel-title">RAM</h3>
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-ram" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <div class="big-stats-container">
                                         <div class="widget-content">
                                             <div class="cf big_stats">
@@ -197,79 +181,90 @@
                                 </div>
                             </div>
                         </div>
-                      </div><!-- ./row -->
 
-		      <div class="row">			
-                        <div class="span6">
-                            <div id="disk-usage-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-list"></i>
-                                    <h3>
+
+
+                        <div id="disk-usage-widget" class="widget col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list"></i>
+                                    <h3 class="panel-title">
                                         Disk Usage
                                     </h3>
-                                    <div id="refresh-df" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-df" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="df_dashboard" class="table table-hover table-condensed table-bordered"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
+                                </div>
+                            </div>
                         </div>
-                        <div class="span6">
-                            <div id="software-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-list"></i>
-                                    <h3>
+
+
+                        <div id="software-widget" class="widget col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list"></i>
+                                    <h3 class="panel-title">
                                         Software
                                     </h3>
-                                    <div id="refresh-whereis" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-whereis" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="whereis_dashboard" class="table table-hover table-condensed table-bordered"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span -->
-                      </div><!--./row -->
-    
-                      <div class="row">
-                        <div class="span6">
-                            <div id="dns-lease-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-list"></i>
-                                    <h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="dns-lease-widget" class="widget col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list"></i>
+                                    <h3 class="panel-title">
                                         DNS Leases
                                     </h3>
-                                    <div id="refresh-dnsmasqleases" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-dnsmasqleases" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="dnsmasqleases_dashboard" class="table table-hover table-condensed table-bordered"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span6 -->
-                        <div class="span3">
-                            <div id="ip-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-monitor"></i>
-                                    <h3>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div id="ip-widget" class="widget col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list"></i>
+                                    <h3 class="panel-title">
                                         IP
                                     </h3>
-                                    <div id="refresh-ip" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-ip" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="ip_dashboard" class="table table-hover table-condensed table-bordered"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span -->
-                        <div class="span3">
-                            <div id="internet-speed-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-monitor"></i>
-                                    <h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="internet-speed-widget" class="widget col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-list"></i>
+                                    <h3 class="panel-title">
                                         Internet Speed
                                     </h3>
-                                    <div id="refresh-ispeed" class="btn js-refresh-info"><span class="icon-refresh"></span></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
-
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-ispeed" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <div style="padding:0px; text-align: center;">
                                         <i class="icon-download" style="font-size:18px;"></i>
                                         <span class="lead value odometer" style="margin-top:11px;" id="ispeed-rate-downstream">0</span>
@@ -280,123 +275,131 @@
                                         <span class="lead value odometer" style="margin-top:11px;" id="ispeed-rate-upstream">0</span>
                                         <span class="lead">Mbps</span>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span -->
-                      </div> <!-- ./row -->
-
-                      <div class="row">
-                        <div class="span4">
-                            <div id="netstat-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-dashboard"></i>
-                                    <h3>
+                        <div id="netstat-widget" class="widget col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-dashboard"></i>
+                                    <h3 class="panel-title">
                                         Network Statistics
                                     </h3>
-                                    <div id="refresh-netstat" class="btn icon-refresh js-refresh-info"></div>
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-netstat" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
                                 </div>
-                                <div class="widget-content">
+                                <div class="panel-body">
                                     <table id="netstat_dashboard" class="table table-hover table-condensed table-bordered"></table>
                                 </div>
                             </div>
                         </div>
-                        <div class="span4">
-                            <div id="ping-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-exchange"></i>
-                                    <h3>
+
+                        <div id="ping-widget" class="widget col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-exchange"></i>
+                                    <h3 class="panel-title">
                                         Ping
                                     </h3>
-                                    <div id="refresh-ping" class="btn js-refresh-info"><span class="icon-refresh"></span></div>
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-ping" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
                                 </div>
-                                <div class="widget-content">
+                                <div class="panel-body">
                                     <table id="ping_dashboard" class="table table-hover table-condensed table-bordered"></table>
                                 </div>
                             </div>
                         </div>
-                        <div class="span4">
-                            <div id="bandwidth-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-exchange"></i>
-                                    <h3>
+
+                        <div id="bandwidth-widget" class="widget col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-exchange"></i>
+                                    <h3 class="panel-title">
                                         Bandwidth
                                     </h3>
-                                    <div id="refresh-bandwidth" class="btn js-refresh-info"><span class="icon-refresh"></span></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-bandwidth" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <div style="padding:10px;text-align:center;">
                                         RX: <span class="lead odometer" style="margin-top:11px;" id="bw-rx">0</span>&nbsp;&nbsp;|&nbsp;&nbsp; TX: <span class="lead odometer" style="margin-top:11px;" id="bw-tx"></span>
                                     </div>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span -->
-                       </div><!--./row -->
+                                </div>
+                            </div>
+                        </div>
 
-                      <div class="row">
-                        <div class="span4">
-                            <div id="users-widget" class="widget widget-table action-table">
-                                <div class="widget-header">
-                                    <i class="icon-group"></i>
-                                    <h3>
+                       <div id="users-widget" class="widget col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-group"></i>
+                                    <h3 class="panel-title">
                                         Users
                                     </h3>
-                                    <div id="refresh-users" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-users" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="users_dashboard" class="table table-hover table-bordered table-condensed"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span6 -->
-                        <div class="span4">
-                            <div id="online-widget" class="widget widget-table action-table">
-                                <div class="widget-header">
-                                    <i class="icon-group"></i>
-                                    <h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="online-widget" class="widget col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-group"></i>
+                                    <h3 class="panel-title">
                                         Online
                                     </h3>
-                                    <div id="refresh-online" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-online" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="online_dashboard" class="table table-hover table-bordered table-condensed"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span6 -->
-                        <div class="span4">
-                            <div id="lastlog-widget" class="widget widget-table action-table">
-                                <div class="widget-header">
-                                    <i class="icon-group"></i>
-                                    <h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="lastlog-widget" class="widget col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-group"></i>
+                                    <h3 class="panel-title">
                                         Last Login
                                     </h3>
-                                    <div id="refresh-lastlog" class="btn icon-refresh js-refresh-info"></div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-lastlog" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
                                     <table id="lastlog_dashboard" class="table table-hover table-bordered table-condensed"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span6 -->
-                       </div><!--./row -->
+                                </div>
+                            </div>
+                        </div>
 
-                      <div class="row">
-                        <div class="span12">
-                            <div id="process-widget" class="widget widget-table">
-                                <div class="widget-header">
-                                    <i class="icon-dashboard"></i>
-                                    <h3>
+                        <div id="process-widget" class="widget col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <i class="icon icon-dashboard"></i>
+                                    <h3 class="panel-title">
                                         Processes
                                     </h3>
-                                    <div id="refresh-ps" class="btn icon-refresh js-refresh-info"></div>
-                                    <div class="pull-right">
-                                        <input type="text" id="filter-ps" class="widget-search" placeholder="search...">
+                                    <input type="text" id="filter-ps" class="widget-search" placeholder="search...">
+                                    <div class="btn-group btn-group-xs">
+                                        <button id="refresh-ps" class="btn btn-default btn-xs icon icon-refresh js-refresh-info"></button>
                                     </div>
-                                </div><!-- /widget-header -->
-                                <div class="widget-content">
+                                </div>
+                                <div class="panel-body">
                                     <table id="ps_dashboard" class="table table-hover table-condensed table-bordered"></table>
-                                </div><!-- /widget-content -->
-                            </div><!-- /widget -->
-                        </div><!-- /span -->
-		       </div><!-- ./row -->
+                                </div>
+                            </div>
+                        </div>
 
                     </div><!-- #/widgets -->
                 </div>
@@ -406,9 +409,13 @@
             <div class="footer-inner">
                 <div class="container">
                     <div class="row">
-                        <div class="span12">
+                        <div class="col-md-12">
                             Original Author: <a href="http://github.com/afaqurk">Afaq Tariq</a>.
-                        </div><!-- /span12 -->
+                            <a class="pull-right" target="_blank" href="http://github.com/afaqurk/linux-dash">
+                                <i class="icon-github-sign"></i> 
+                                <span>Contribute on GitHub</span>
+                            </a>
+                        </div><!-- /col-md-12 -->
                     </div><!-- /row -->
                 </div><!-- /container -->
             </div><!-- /footer-inner -->
