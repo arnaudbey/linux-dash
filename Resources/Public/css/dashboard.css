@@ -1,7 +1,54 @@
-.panel-heading{
+/*******************
+
+	  BODY
+
+********************/
+body {
+	margin-top: 70px;
+	background: #f9f6f1;
+}
+
+/*******************
+
+	  NAVBAR
+
+********************/
+
+nav {
+	background: #00ba8b !important;
+	border-radius: 0;
+}
+
+nav .navbar-brand {
+	font-weight: 600;
+	position: relative;
+	top: 2px;
+}
+
+nav a {
+	color:white !important;
+	text-decoration: none;
+}
+
+nav .dropdown-menu a {
+	color:black !important;
+}
+
+/*******************
+
+	  WIDGET
+
+********************/
+
+.widget .panel-heading {
 	position:relative;
 }
-.btn-group {
+
+.widget .btn-group {
 	position:absolute;
 	right:10px;
+}
+
+.widget .panel-body{
+	padding:5px;
 }

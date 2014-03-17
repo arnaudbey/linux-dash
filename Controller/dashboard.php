@@ -2,25 +2,28 @@
 
 if (isset($_POST['action']) && !empty($_POST['action'])) {
     $action = $_POST['action'];
+    $dirDefault = "./Widgets/Default";
+    $dirUser = "./Widgets/User";
     switch ($action) {
 
         case 'getAllWidgets' :
-            $files = glob('Widgets/*.php', GLOB_BRACE);
-            echo json_encode($files);
+            $files = glob('{'.$dirDefault.'/*.php,'.$dirUser.'/*.php}', GLOB_BRACE);
+            $shortFiles = array();
+            foreach ($files as $file) {
+                $shortFiles[] = basename($file, ".php");
+            }
+            echo json_encode($shortFiles);
         break;
 
         case 'executeWidget':
-            if (isset($_POST['widgetFile']) && !empty($_POST['widgetFile'])) {
-                $twig = loadTwig();
-                require_once $_POST['widgetFile'];
-                echo $twig->render('widget.html.twig',array('widget' => $widget));
-            }
-        break;
-
-        case 'refreshWidget':
             if (isset($_POST['widgetId']) && !empty($_POST['widgetId'])) {
+                $widgetId = $_POST['widgetId'];
                 $twig = loadTwig();
-                require_once './Widgets/'.$_POST['widgetId'].".php";
+                if (is_file($dirDefault."/".$widgetId.".php")) {
+                    require_once $dirDefault."/".$widgetId.".php";
+                } else {
+                    require_once $dirUser."/".$widgetId.".php";
+                }
                 echo $twig->render('widget.html.twig',array('widget' => $widget));
             }
         break;

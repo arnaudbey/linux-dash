@@ -24,6 +24,7 @@ if ($min != 0) {
 $widget = array(
     "id" => basename(__FILE__, '.php'),
     "size" => "3",
+    "icon" => "clock-o",
     "title" => "Uptime",
     "content" => $formatUptime
 );

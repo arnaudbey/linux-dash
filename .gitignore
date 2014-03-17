@@ -3,3 +3,5 @@ Resources/Public/components/*
 !Resources/Public/components/.gitkeep
 notUsed/*
 composer.lock
+User/
+!User/.gitkeep

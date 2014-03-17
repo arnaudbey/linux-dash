@@ -21,7 +21,7 @@ for ($i = 0; $i < $max; $i++) {
     $pings[] = array("host" => $hosts[$i], "latency" => $result[0]);
 }
 
-$content = $twig->render('Widgets/ping.html.twig',array("pings" => $pings));
+$content = $twig->render('Widgets/Default/ping.html.twig',array("pings" => $pings));
 
 $widget = array(
     "id" => basename(__FILE__, '.php'),

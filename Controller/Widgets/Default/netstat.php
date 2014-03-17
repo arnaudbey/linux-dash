@@ -21,11 +21,12 @@ for ($i = 0; $i < $max; $i++) {
     );
 }
 
-$content = $twig->render('Widgets/netstat.html.twig',array("ips" => $ips));
+$content = $twig->render('Widgets/Default/netstat.html.twig',array("ips" => $ips));
 
 $widget = array(
     "id" => basename(__FILE__, '.php'),
     "size" => "3",
+    "icon" => "eye",
     "title" => "Network Statistics",
     "content" => $content
 );
