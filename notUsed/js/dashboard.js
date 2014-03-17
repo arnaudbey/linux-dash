@@ -460,6 +460,19 @@ dashboard.getBandwidth = function () {
 }
 
 
+dashboard.getTest = function () {
+    $.ajax({
+        url: 'sh/test.php',
+        cache: false,
+        success: function (widget) {
+            $("#widgets").append(widget);
+        }
+    });
+}
+
+
+
+
 /**
  * Refreshes all widgets. Does not call itself recursively.
  */
@@ -487,5 +500,6 @@ dashboard.fnMap = {
     netstat: dashboard.getNetStat,
     dnsmasqleases: dashboard.getDnsmasqLeases,
     bandwidth: dashboard.getBandwidth,
-    ping: dashboard.getPing
+    ping: dashboard.getPing,
+    test: dashboard.getTest
 };

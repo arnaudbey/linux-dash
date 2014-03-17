@@ -1,0 +1,5 @@
+vendor/*
+Resources/Public/components/*
+!Resources/Public/components/.gitkeep
+notUsed/*
+composer.lock

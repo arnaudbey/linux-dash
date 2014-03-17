@@ -1,0 +1,21 @@
+<div id="{{ widget.id }}" class="widget col-md-{{ widget.size }}">
+    <div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title"> 
+				{{ widget.title }}
+				<div class="btn-group btn-group-xs">
+					<span class="refresh-btn btn btn-xs btn-default">
+						<i class="fa fa-refresh"></i>
+					</span>
+					<span class="close-btn btn btn-xs btn-default">
+						<i class="fa fa-times"></i>
+					</span>
+				</div>
+			</h3>
+			
+		</div>
+		<div class="panel-body">
+			{{ widget.content | raw }}
+		</div>
+	</div>
+</div>

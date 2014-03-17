@@ -1,0 +1,11 @@
+{
+    "require": {
+        "twig/twig": "*",
+        "components/bootstrap": "3.*",
+        "components/jqueryui": "*",
+        "components/font-awesome": "*"
+    },
+    "config": {
+        "component-dir": "Resources/Public/components"
+    }
+}

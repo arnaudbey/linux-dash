@@ -1,0 +1,7 @@
+.panel-heading{
+	position:relative;
+}
+.btn-group {
+	position:absolute;
+	right:10px;
+}
