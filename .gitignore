@@ -1,7 +1,13 @@
 vendor/*
+notUsed/*
+
 Resources/Public/components/*
 !Resources/Public/components/.gitkeep
-notUsed/*
+
+Controller/Widgets/User/*
+!Controller/Widgets/User/.gitkeep
+
+Resources/Views/Widgets/User/*
+!Resources/Views/Widgets/User/.gitkeep
+
 composer.lock
-User/
-!User/.gitkeep
