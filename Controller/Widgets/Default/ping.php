@@ -26,6 +26,7 @@ $content = $twig->render('Widgets/Default/ping.html.twig',array("pings" => $ping
 $widget = array(
     "id" => basename(__FILE__, '.php'),
     "size" => "3",
+    "icon" => "exchange",
     "title" => "Ping",
     "content" => $content
 );
