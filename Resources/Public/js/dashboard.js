@@ -85,7 +85,7 @@ function closeWidget(widgetId, speed){
     widget.remove();
 
     // add to hidden list
-    closedWidgets.append('<li><a class="open-btn" data-id="'+widgetId+'"><i class="icon-plus-sign"></i>  '+widgetName+'</a></li>');
+    closedWidgets.append('<li><a href="#" class="open-btn" data-id="'+widgetId+'"><i class="fa fa-plus-square"></i>  '+widgetName+'</a></li>');
 
     // add widget to localstorage (and create item if needed)
     var localData = JSON.parse(window.localStorage.getItem('hidden'));
