@@ -12,7 +12,6 @@ exec("$netstat -ntu | $awk 'NR>2 {sub(/:[^:]+$/, \"\"); print $5}' | $sort | $un
 $ips = array();
 $max = count($result);
 for ($i = 0; $i < $max; $i++) {
-
    $ips[] = preg_split(
         '@\s+@',
         $result[$i],

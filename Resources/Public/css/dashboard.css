@@ -51,3 +51,18 @@ nav .dropdown-menu a {
 .widget .panel-body{
 	padding:5px;
 }
+
+/*******************
+
+	  LOAD AVG
+
+********************/
+
+#loadaverage .panel-body .panel-heading {
+	color : #00ba8b;
+	font-size:150%;
+}
+
+#loadaverage .percent{
+	font-weight: bold;
+}

@@ -72,7 +72,6 @@ function openAllWidgets(){
 }
 
 function closeWidget(widgetId, speed){
-	console.log(widgetId);
 	var closedWidgetCount = $('#closed-widget-count');
 	var closedWidgets = $('#closed-widget-list');
 	var widget = $("#"+widgetId);
